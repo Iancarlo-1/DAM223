@@ -13,9 +13,40 @@ export default function App() {
     <View style={styles.container}>
       <Text>Hola Mundo React Native</Text>
       <Image source={require('./assets/favicon.png')}></Image>
+      
       <Saludo/>
+      
       <Saludo2/>
-      <Perfil/>
+
+      <Text>----------------------------------------</Text>
+      
+      <Perfil 
+              
+              nombre="Iancarlo Abreu Martinez"  
+              carrera="TIID" 
+              materia="Movil" 
+              cuatri="4">
+
+      </Perfil>
+
+      <Perfil 
+              
+              nombre="Miguel Zamora Bocanegra"  
+              carrera="TIID" 
+              materia="Movil" 
+              cuatri="4">
+
+      </Perfil>
+
+      <Perfil 
+              
+              nombre="Exal Paul Bolaños Velasco"  
+              carrera="TIID" 
+              materia="Movil" 
+              cuatri="4">
+
+      </Perfil>
+      
       <StatusBar style="auto" />
     </View>
   );

@@ -1,12 +1,23 @@
-import {Text, View} from 'react-native';
+import {Text, View, Button} from 'react-native';
+import { useState } from 'react';
 
-export const Perfil = () => {
+export const Perfil = ({nombre,carrera,materia,cuatri}) => {
+    const[mostrar,setMostrar] = useState(false)
     return (
         <View>
-            <Text> Nombre: Iancarlo Abreu Martinez </Text>
-            <Text> Carrera: TIID </Text>
-            <Text> Materia: Desarrollo de Aplicaciones Móviles </Text>
-            <Text> Cuatrimestre: 4to </Text>
+
+            <Text>{nombre}</Text>
+            
+            { mostrar &&
+            <>
+            <Text>{carrera}</Text>
+            <Text>{materia}</Text>
+            <Text>{cuatri}</Text>
+            </>
+            }   
+
+            {/* { ()=>{} } = Es una funcion anonima ya que no importa su nomrbe sino interesa la accion */}
+            <Button title='Ver perifl' onPress={ ()=>setMostrar(!mostrar) } ></Button>
         </View>
     );
 }
