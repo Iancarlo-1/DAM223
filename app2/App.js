@@ -11,31 +11,39 @@ import { Perfil } from './components/Perfil';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Perfil
+      <Text>Hola Mundo React Native</Text>
+      <Image source={require('./assets/favicon.png')}></Image>
+      
+      <Saludo/>
+      
+      <Saludo2/>
+
+      <Text>----------------------------------------</Text>
+      
+      <Perfil 
               
               nombre="Iancarlo Abreu Martinez"  
               carrera="TIID" 
               materia="Movil" 
-              cuatri="4"
-              style={styles.tarjeta1}>
+              cuatri="4">
 
       </Perfil>
+
       <Perfil 
               
               nombre="Miguel Zamora Bocanegra"  
               carrera="TIID" 
               materia="Movil" 
-              cuatri="4"
-              style={styles.tarjeta2}>
+              cuatri="4">
 
       </Perfil>
+
       <Perfil 
               
               nombre="Exal Paul Bolaños Velasco"  
               carrera="TIID" 
               materia="Movil" 
-              cuatri="4"
-              style={styles.tarjeta3}>
+              cuatri="4">
 
       </Perfil>
       
@@ -48,19 +56,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection:'row',
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
-  },
-  tarjeta1:{
-    backgroundColor:'#840b0b',
-
-  },
-  tarjeta2:{
-    backgroundColor:'#555251',
-  },
-  tarjeta3:{
-    backgroundColor:'#ac5425',
+    justifyContent: 'center',
   },
 });
