@@ -1,28 +1,102 @@
-import { StyleSheet, View, Text} from 'react-native';
+import { useState } from "react";
+import {View,Switch, TextInput, Button, ActivityIndicator, KeyboardAvoidingView, Text, StyleSheet, Platform} from 'react-native';
 
+export default function ActivityScreen (){
+  const [cargando,setCargando] = useState(false);
+  const [esGrande,setEsGrande] = useState(false);
+  const [cambiarColor,setCambiarColor] = useState(false);
 
+  const handleEnviar = () => {
+    setCargando (true)
+    setTimeout(() => setCargando(false), 4000);
+  };
 
-
-/* 2. Zona Main */
-export default function ActivityScreen() {
   return (
-    <View style={styles.container}>
+
+    <KeyboardAvoidingView
+    behaivor={Platform.OS === 'ios' ? 'padding' : 'height'}
+    keyboardVerticalOffset={20}
+    style = {styles.container}
+    >
+    <TextInput
+    placeholder="Escribe algo..."
+    style = {styles.input}
+    />
+    <View style = {styles.actionContainer}>
+      {cargando ? (
+        <ActivityIndicator 
+        size = {esGrande ? "large" : "small"}
+        color = {cambiarColor ? "#00bfff" : "#ff00fb"}
+        />
+        ) : (
+          <Button title = "Enviar"
+          onPress={handleEnviar}
+          />
+        )}
+      </View>
+
+      <View style = {styles.switchBox}>
+        <View style = {styles.switchRow}>
+          <Text style = {styles.switchText}>Hacer más grande</Text>
+          <Switch 
+          value = {esGrande}
+          onValueChange = {setEsGrande}
+          /> 
       
-    <Text> Aqui va la practica </Text>
-        <Text> Equipo de </Text>
+      </View>
 
-    </View>
-  );
-}
 
-/* 3. Zona estética */
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection:'row',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-  },
+      <View style = {styles.switchRow}>
+      <Text style = {styles.switchText}>Cambiar color</Text>
+      <Switch
+      value = {cambiarColor}
+      onValueChange = {setCambiarColor}
+      />
+      </View>
+      </View>
+      </KeyboardAvoidingView>
+      );
+    }
+
+    const styles = StyleSheet.create({
+      container: {
+        flex : 1,
+        justifyContent: 'flex-end',
+        padding: 20,
+        color : '#fff',
+      },
+      input: {
+        borderWidht : 1,
+        borderColor : '#ccc',
+        padding : 10,
+        borderRadius : 8,
+        marginBottom: 20,
+        backgroundColor:'#fff',
+      },
+      action : {
+        height : 40,
+        justifyContent: 'center',
+        marginBottom: 20,
+      },
+      switchBox: {
+        borderWidht: 1,
+        borderColor: '#ddd',
+        borderRadius: 8,
+        padding : 15,
+        backgroundColor: '#fff',
+      },
+      switchRow:{
+        flexDirection: 'row',
+        alingItems: 'center',
+        justifyContent : 'space-between',
+        marginBottom: 15,
+      },
+      switchText: {
+        fontSize : 16,
+
+      },
+    })
+
+      
+
   
-});
