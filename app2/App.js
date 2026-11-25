@@ -3,7 +3,6 @@ import { StyleSheet, View,} from 'react-native';
 import MenuScreen from './screens/MenuScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-
 /* 2. Zona Main */
 export default function App() {
   return (
@@ -13,6 +12,7 @@ export default function App() {
     
     </View>
     </SafeAreaProvider>
+    
   );
 }
 
